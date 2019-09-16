@@ -16,6 +16,7 @@ namespace ProductApps
         private decimal gst;
 
         private static decimal DEFAULT_DELIVERY = 25;
+        private static decimal DEFAULT_WRAPPING = 5;
 
         private decimal Price
         {
@@ -61,6 +62,7 @@ namespace ProductApps
             Price = price;
             Quantity = quantity;
             Delivery = DEFAULT_DELIVERY;
+            Wrapping = DEFAULT_WRAPPING;
         }
 
         //Calculate the total payment
@@ -73,6 +75,11 @@ namespace ProductApps
         public decimal calTotalWithCharge()
         {
             return TotalPayment + Delivery;
+        }
+
+        public decimal calTotalWithWrap()
+        {
+            return calTotalWithCharge() + Wrapping;
         }
     }
 }
